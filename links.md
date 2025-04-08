@@ -1,0 +1,3 @@
+- [The origin of error correction](https://www.youtube.com/watch?v=X8jsijhllIA)
+- [Lecture "Channel Coding: Graph-based Codes", Chapter 3, Vid. 3, "LDPC Codes"](https://www.youtube.com/watch?v=pvUt3QNk9B8)
+- [Low-Density Parity Check for Modern Communication Systems](https://www.cardinalpeak.com/blog/low-density-parity-check-for-modern-communication-systems)
