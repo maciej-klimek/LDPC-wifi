@@ -1,7 +1,3 @@
-Poniżej przedstawię szczegółowe wyjaśnienie zasady działania LDPC, najpierw w ujęciu ogólnym, a następnie odniesienie do sposobu wykorzystania LDPC w standardzie WiFi (IEEE 802.11n).
-
----
-
 ## 1. Ogólne Zasady Działania LDPC
 
 ### 1.1. Podstawowa Idea i Definicja
