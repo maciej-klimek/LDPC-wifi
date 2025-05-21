@@ -1,6 +1,7 @@
 import numpy as np
 from pyldpc import make_ldpc, encode, get_message
 from decoder import belief_propagation_decode
+from decoderMinSum import belief_propagation_decode_min_sum
 
 
 def simulate_ldpc(n=1296, d_v=2, d_c=4, snr=2.5, num_trials=10, maxiter=100, use_custom_decoder=False):
@@ -25,8 +26,13 @@ def simulate_ldpc(n=1296, d_v=2, d_c=4, snr=2.5, num_trials=10, maxiter=100, use
 
         if use_custom_decoder:
             llr = 2 * y_noisy * snr
-            x_hat_full = belief_propagation_decode(
-                llr, H, max_iter=maxiter, damping=0.5)
+            # Damping - bardziej "kosztowny" czasowo, ale dokładniejszy
+            # x_hat_full = belief_propagation_decode(
+            #    llr, H, max_iter=maxiter, damping=0.5)
+
+            # Min-sum - szybszy, ale mniej dokładny
+            x_hat_full = belief_propagation_decode_min_sum(
+                llr, H, max_iter=maxiter,alpha=0.75)
         else:
             from pyldpc import decode
             x_hat_full = decode(H, y_noisy, snr, maxiter=maxiter)
@@ -47,5 +53,5 @@ def simulate_ldpc(n=1296, d_v=2, d_c=4, snr=2.5, num_trials=10, maxiter=100, use
 
 
 if __name__ == "__main__":
-    simulate_ldpc(n=1296, d_v=2, d_c=4, snr=4.0, num_trials=10,
+    simulate_ldpc(n=1296, d_v=2, d_c=4, snr=6.0, num_trials=10,
                   maxiter=100, use_custom_decoder=True)
