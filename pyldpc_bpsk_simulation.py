@@ -50,6 +50,8 @@ def simulate_ldpc(n=1296, d_v=2, d_c=4, snr=2.5, num_trials=10, maxiter=100, use
 
     print(f"\nSkuteczność: {successes}/{num_trials}, "
           f"Średnia liczba błędów bitowych: {total_bit_errors / num_trials:.2f}")
+    
+    return successes/num_trials, total_bit_errors/num_trials
 
 
 if __name__ == "__main__":
